@@ -22,7 +22,7 @@ export class GameComponent implements OnInit {
   public selectedAnswer;
   private correct = 0;
   private incorrect = 0;
-  private triviaApi = '/api/api.php?amount=10';
+  private triviaApi = '/api/api.php?amount=2';
 
   @ViewChild('answer') answer: MdRadioGroup;
 
@@ -69,9 +69,9 @@ export class GameComponent implements OnInit {
     let questionSet ;
 
     const update = () => {
-      if (!this.currentQuestionSet) {
-        this.updateInterval.clear();
-        this.status = 'gameResult';
+      if (this.status === 'gameResult') {
+        clearInterval(this.updateInterval);
+        return;
       }
 
       if (questionSet !== this.currentQuestionSet) {
@@ -96,6 +96,9 @@ export class GameComponent implements OnInit {
 
     setTimeout(() => {
       this.currentQuestionSet = this.questions.pop();
+      if (!this.currentQuestionSet) {
+        this.status = 'gameResult';
+      }
     }, 2500);
   }
 

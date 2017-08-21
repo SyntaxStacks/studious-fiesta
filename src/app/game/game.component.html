@@ -16,11 +16,11 @@
 					<span class="question">{{ currentQuestionSet.question }}</span>
 				</div>
       	<div id="answer" >
-					<md-radio-group #answer>
+					<md-radio-group #answer
+            [(ngModel)]="selectedAnswer">
 						<md-radio-button
 							*ngFor="let a of currentQuestionSet.answers"
 							[value]="a"
-							[(ngModel)]="selectedAnswer"
 							ngDefaultControl>
 							{{ a }}
 						</md-radio-button>
@@ -35,6 +35,9 @@
 			<div class="game-result" *ngSwitchCase="'gameResult'">
 				Correct Answers: {{ getCorrect }}
 				Incorrect Answers: {{ getIncorrect }}
+
+        <button id="submit" md-button routerLink="/lobby" >Back to Lobby</button>
+
 			</div>
 		</div>
 	</md-sidenav-container>
