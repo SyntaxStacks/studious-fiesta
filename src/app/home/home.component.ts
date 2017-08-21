@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
   play() {
     const name = this.name.nativeElement.value;
     if (name.length === 0) {
-      this.error = "Enter Name";
+      this.error = 'Enter Name';
     }
 
     localStorage.setItem('name', name);
