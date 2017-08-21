@@ -22,7 +22,7 @@ export class GameComponent implements OnInit {
   public selectedAnswer;
   private correct = 0;
   private incorrect = 0;
-  private triviaApi = '/api/api.php?amount=2';
+  private triviaApi = '/api/api.php?amount=6';
 
   @ViewChild('answer') answer: MdRadioGroup;
 
@@ -95,6 +95,7 @@ export class GameComponent implements OnInit {
     this.status = 'questionResult';
 
     setTimeout(() => {
+      this.status = 'loading';
       this.currentQuestionSet = this.questions.pop();
       if (!this.currentQuestionSet) {
         this.status = 'gameResult';
