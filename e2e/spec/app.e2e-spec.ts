@@ -1,4 +1,4 @@
-import { AppPage } from './app.po';
+import { AppPage } from '../po/app.po';
 
 describe('sf App', () => {
   let page: AppPage;

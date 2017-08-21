@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lobby',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LobbyComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private Router: Router
+  ) { }
 
   ngOnInit() {
+    const name = localStorage.getItem('name');
+    if (!name) {
+      this.Router.navigate(['home']);
+    }
   }
-
 }
