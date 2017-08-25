@@ -1,3 +1,50 @@
-<p>
-  game works!
-</p>
+<div class="game-container">
+	<md-sidenav-container>
+		<md-sidenav mode="side" opened="true">
+			Users:
+			<ul class="lobby-user-list">
+				<li class="lobby-user-list-item">
+					{{ username }}
+				</li>
+			</ul>
+		</md-sidenav>
+		<div id="game" class="game" [ngSwitch]="status">
+      <div class="game-loading" *ngSwitchDefault>Loading</div>
+      <div class="game-question" *ngSwitchCase="'question'">
+      	<div id="question" #question>
+          <h1>Question</h1>
+          <div class="question" [innerHtml]="currentQuestionSet.question"></div>
+				</div>
+      	<div id="answer">
+					<md-radio-group #answer class="game-answer-container"
+            [(ngModel)]="selectedAnswer">
+						<md-radio-button
+							*ngFor="let a of currentQuestionSet.answers"
+							[value]="a"
+							ngDefaultControl>
+              <span [innerHtml]="a"></span>
+						</md-radio-button>
+					</md-radio-group>
+				</div>
+      </div>
+			<div class="game-question-result-container" *ngSwitchCase="'questionResult'">
+        <h1>Question</h1>
+        <div class="question" [innerHtml]="currentQuestionSet.question"></div>
+        <div class="game-question-result">
+          <div class="result">
+            Correct Answer: <span [innerHtml]="currentQuestionSet.answer"></span>
+          </div>
+          <div class="result">
+            Your Answer: <span [innerHtml]="selectedAnswer"></span>
+          </div>
+        </div>
+			</div>
+			<div class="game-result-container" *ngSwitchCase="'gameResult'">
+        <div class="game-result correct">Correct Answers: {{ getCorrect }}</div>
+        <div class="game-result incorrect">Incorrect Answers: {{ getIncorrect }}</div>
+        <button id="submit" md-button routerLink="/lobby" >Back to Lobby</button>
+			</div>
+		</div>
+	</md-sidenav-container>
+</div>
+

@@ -1,3 +1,15 @@
-<p>
-  lobby works!
-</p>
+<div class="lobby-container">
+	<md-sidenav-container>
+		<md-sidenav mode="side" opened="true">
+			Users:
+			<ul class="lobby-user-list">
+				<li class="lobby-user-list-item">
+					{{ username }}
+				</li>
+			</ul>
+		</md-sidenav>
+		<div class="my-content">
+			<button id="submit" md-button (click)="play()" >Play</button>
+		</div>
+	</md-sidenav-container>
+</div>
