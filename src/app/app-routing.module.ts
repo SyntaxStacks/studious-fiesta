@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { GameComponent } from './game/game.component';
+import { MultiplayerComponent } from './multiplayer/multiplayer.component';
 import { LobbyComponent } from './lobby/lobby.component';
 
 export const routes: Routes = [{
@@ -16,6 +17,10 @@ export const routes: Routes = [{
   path: 'game',
   pathMatch: 'full',
   component: GameComponent
+}, {
+  path: 'online',
+  pathMatch: 'full',
+  component: MultiplayerComponent
 }, {
   path: 'lobby',
   pathMatch: 'full',

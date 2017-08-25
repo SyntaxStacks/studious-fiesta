@@ -5,6 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0 --disable-host-check --proxy-config proxy.conf.json",
+    "start:multiplayer": "node src/server/multiplayer.server.js",
     "build": "ng build",
     "test": "ng lint && ng test --watch=false && ng e2e",
     "lint": "ng lint",
@@ -25,6 +26,7 @@
     "@angular/platform-browser-dynamic": "^4.2.4",
     "@angular/router": "^4.2.4",
     "core-js": "^2.4.1",
+    "request-promise": "^4.2.1",
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.14"
   },

@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { HomeModule } from './home';
 import { GameModule } from './game';
 import { LobbyModule } from './lobby';
+import { MultiplayerModule } from './multiplayer';
+import { MultiplayerService } from './multiplayer/multiplayer.service';
 
 @NgModule({
   imports: [
@@ -17,12 +19,15 @@ import { LobbyModule } from './lobby';
     AppRoutingModule,
     HomeModule,
     GameModule,
-    LobbyModule
+    LobbyModule,
+    MultiplayerModule
   ],
   declarations: [
     AppComponent
   ],
-  providers: [],
+  providers: [
+    MultiplayerService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -6,14 +6,14 @@ import {
 @Injectable()
 export class MultiplayerService {
 
-  public socket;
-  private ws_url = 'http://localhost:3000';
+  private _socket;
+  private ws_url = '/ws/socket.io/';
 
   constructor() {
   }
 
   get socket() {
-    return this.socket;
+    return this._socket;
   }
 
   openSocket() {
@@ -21,11 +21,14 @@ export class MultiplayerService {
       this.closeSocket();
     }
 
-    this.socket = io(this.ws_url);
+    this._socket = io('/', {
+      path: this.ws_url
+    });
   }
 
   closeSocket() {
-    this.socket && this.socket.close();
+    if (this.socket) {
+      this.socket.close();
+    }
   }
-
 }

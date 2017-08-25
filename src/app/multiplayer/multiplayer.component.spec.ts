@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { MultiplayerModule } from './';
 import { MultiplayerComponent } from './multiplayer.component';
 
 describe('MultiplayerComponent', () => {
@@ -8,7 +9,7 @@ describe('MultiplayerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MultiplayerComponent ]
+      imports: [ MultiplayerModule]
     })
     .compileComponents();
   }));
