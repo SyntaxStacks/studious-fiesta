@@ -3,13 +3,20 @@
 		<md-sidenav mode="side" opened="true">
 			Users:
 			<ul class="lobby-user-list">
-				<li class="lobby-user-list-item">
-					{{ username }}
-				</li>
+				<li class="lobby-user-list-item" *ngFor="let user of userList" [textContent]="user.username">
 			</ul>
 		</md-sidenav>
 		<div class="my-content">
-			<button id="submit" md-button (click)="play()" >Play</button>
+      <div class="chat-messages">
+        <ul>
+          <li *ngFor="let chat of chatMessages">
+            <span class="chat-username" [textContent]="chat.username"></span>
+            <span class="chat-message" [textContent]="chat.message"></span>
+          </li>
+        </ul>
+      </div>
+      <input #chatMessage type="text">
+			<button id="submit" md-button (click)="sendChat(chatMessage.value)" >Play</button>
 		</div>
 	</md-sidenav-container>
 </div>

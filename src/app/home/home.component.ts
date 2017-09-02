@@ -22,14 +22,26 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  play() {
+  lobby() {
     const name = this.name.nativeElement.value;
     if (name.length === 0) {
       this.error = 'Enter Name';
+      return;
     }
 
     localStorage.setItem('name', name);
     this.Router.navigate(['lobby']);
+  }
+
+  play() {
+    const name = this.name.nativeElement.value;
+    if (name.length === 0) {
+      this.error = 'Enter Name';
+      return;
+    }
+
+    localStorage.setItem('name', name);
+    this.Router.navigate(['game']);
   }
 
 }

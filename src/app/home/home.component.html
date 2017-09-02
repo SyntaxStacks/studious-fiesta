@@ -1,6 +1,7 @@
 <div class="home-container">
   <md-input-container>
-    <input id="name" #name mdInput placeholder="Name" value="Enter a Name">
+    <input id="name" #name mdInput placeholder="Enter a Name">
   </md-input-container>
+  <button id="lobby" md-button (click)="lobby()" >Multiplayer</button>
   <button id="submit" md-button (click)="play()" >Play</button>
 </div>
